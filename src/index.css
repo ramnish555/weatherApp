@@ -1,0 +1,46 @@
+body,html{
+    height:100%;
+    overflow-x: hidden;
+}
+
+.container1{
+    /* position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.imgContainer {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+  
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+.icon{
+    max-width: 50px;
+    max-height: 50px;
+}
+
+/* footer {
+    position: fixed;
+    bottom:0; 
+}
+
+p.copyright {
+    position: absolute;
+    width: 100%;
+    line-height: 40px;
+    font-size: 0.7em;
+    text-align: center;
+    bottom:0;
+} */
