@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import LoadImage from './LoadImage';
 
 const Card = ()=>{
     const [val,setVal] = useState("Amritsar");
@@ -10,12 +11,10 @@ const Card = ()=>{
             const response = await fetch(url);
             const data = await response.json();
             setData(data);
-            console.log(data);
+            // console.log(data);
         }catch(error){
             console.log("error while Fetching");
         }
-        
-        console.log(apiData);
     }
 
     useEffect(()=>{
@@ -27,6 +26,14 @@ const Card = ()=>{
         getDetails();
     }
 
+    const hide = ()=>{
+        document.getElementsByClassName('fixed-bottom')[0].style.display="None";
+    }
+
+    const show = ()=>{
+        document.getElementsByClassName('fixed-bottom')[0].style.display="block";
+    }
+
     return(
         <>
             <div className="card" style={{width: "20rem"}}>
@@ -36,21 +43,21 @@ const Card = ()=>{
                 <div className="card-body">
                 <form className="row g-3" onSubmit={submitBtn}>
                     <div className="col-auto">
-                        <input type="text" className="form-control" placeholder="Enter City Name" value={val} onChange={(event)=>{setVal(event.target.value)}}/>
+                        <input type="text" className="form-control" placeholder="Enter City Name" value={val} onChange={(event)=>{setVal(event.target.value)}} onFocus={hide} onBlur={show}/>
                     </div>
                     <div className="col-auto">
                         <button type="submit" className="btn btn-outline-secondary">Submit</button>
                     </div>
                 </form>
                 {
-                    !apiData?<h5 className="card-title" style={{textAlign: "center",padding:"50px"}}>Please Enter the City Name !!!</h5>:
+                    !apiData?null:
                     apiData.cod === "404" || apiData.cod === "400"?<h5 className="card-title" style={{textAlign: "center",padding:"50px"}}>City Not Found</h5>:
                     (
                         <>
                         <div style={{textAlign: "center",marginTop: "10px"}}>
                             <h5 className="card-title">{apiData.name} ({apiData.sys.country})</h5>
-                            <img src={`http://openweathermap.org/img/wn/${apiData.weather[0].icon}@2x.png`} className="icon" alt="Content"/>
-                            
+                            {/* <img src={`http://openweathermap.org/img/wn/${apiData.weather[0].icon}@2x.png`} className="icon" alt="Content"/> */}
+                            <LoadImage icon={apiData.weather[0].icon} desc={apiData.weather[0].description}/>
                             <p className="card-text">Current Temp :: <b>{(Math.round((parseFloat(apiData.main.temp)-273.15) * 100) / 100).toFixed(2)}°C</b></p>
                             <p className="card-text" style={{ display: "flex",flexDirection: "row",justifyContent: "space-between"}}>
                                 <span>

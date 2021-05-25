@@ -20,7 +20,7 @@ body,html{
     justify-content: space-around;
 }
 
-fixed-bottom {
+.fixed-bottom {
     position: absolute !important;
 }
 
@@ -31,8 +31,8 @@ fixed-bottom {
 }
 
 .icon{
-    max-width: 70px;
-    max-height: 70px;
+    max-width: 80px;
+    max-height: 80px;
 }
 
 h5{

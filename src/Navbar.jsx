@@ -6,7 +6,7 @@ const NavBar = ()=>{
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
-                    <span className="navbar-brand" style={{width: "100%",textAlign: "center"}}><span><img src={imagename} alt="image" style={{maxWidth: "50px",maxHeight: "50px"}}/></span>Weather App</span>
+                    <span className="navbar-brand" style={{width: "100%",textAlign: "center"}}><span><img src={imagename} alt="content" style={{maxWidth: "50px",maxHeight: "50px"}}/></span>Weather App</span>
                 </div>
             </nav>
             <nav className="navbar fixed-bottom navbar-light bg-light">
